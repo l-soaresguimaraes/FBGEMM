@@ -64,7 +64,7 @@ jobs:
         ]
         container-image: [ "ubuntu:20.04" ]
         python-version: [ "3.9", "3.10", "3.11", "3.12" ]
-        rocm-version: [ "6.2" ]
+        rocm-version: [ "6.1" ]
         compiler: [ "gcc", "clang" ]
 
     steps:
