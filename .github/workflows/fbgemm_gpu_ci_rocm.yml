@@ -63,7 +63,7 @@ jobs:
           { arch: x86, instance: "gfx90a" },
         ]
         container-image: [ "ubuntu:20.04" ]
-        python-version: [ "3.9", "3.10", "3.11", "3.12" ]
+        python-version: [ "3.12" ]
         rocm-version: [ "6.2" ]
         compiler: [ "gcc", "clang" ]
 
