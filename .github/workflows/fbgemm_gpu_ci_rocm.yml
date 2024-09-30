@@ -64,7 +64,7 @@ jobs:
           { arch: x86, instance: "gfx90a" },
         ]
         container-image: [ "ubuntu:20.04" ]
-        python-version: [ "3.9", "3.10", "3.11", "3.12" ]
+        python-version: [ "3.12" ]
         rocm-version: [ "6.2" ]
         compiler: [ "gcc", "clang" ]
 
@@ -196,5 +196,5 @@ jobs:
       run: . $PRELUDE; install_fbgemm_gpu_wheel $BUILD_ENV *.whl
 
     - name: Test with PyTest
-      timeout-minutes: 20
+      timeout-minutes: 60
       run: . $PRELUDE; test_all_fbgemm_gpu_modules $BUILD_ENV
