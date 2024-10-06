@@ -181,7 +181,7 @@ __setup_fbgemm_gpu_test () {
 
   echo "[TEST] Installing PyTest ..."
   # shellcheck disable=SC2086
-  (exec_with_retries 3 conda install ${env_prefix} -y pytest expecttest) || return 1
+  (exec_with_retries 3 conda install ${env_prefix} -y pytest expecttest pytest-timeout) || return 1
 
   echo "[TEST] Checking imports ..."
   (test_python_import_package "${env_name}" fbgemm_gpu) || return 1
@@ -198,6 +198,7 @@ __setup_fbgemm_gpu_test () {
     -rsx
     -s
     -W ignore::pytest.PytestCollectionWarning
+    --timeout=600
   )
 
   # shellcheck disable=SC2145
