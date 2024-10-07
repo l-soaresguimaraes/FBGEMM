@@ -102,8 +102,8 @@ jobs:
     - name: Install ROCm
       run: . $PRELUDE; install_rocm_ubuntu $BUILD_ENV ${{ matrix.rocm-version }}
 
-    - name: Install PyTorch-ROCm Nightly
-      run:  . $PRELUDE; install_pytorch_pip $BUILD_ENV nightly rocm/${{ matrix.rocm-version }}
+    - name: Install PyTorch-ROCm Test
+      run:  . $PRELUDE; install_pytorch_pip $BUILD_ENV test rocm/${{ matrix.rocm-version }}
 
     - name: Collect PyTorch Environment Info
       if: ${{ success() || failure() }}
@@ -182,8 +182,8 @@ jobs:
     - name: Install ROCm AMD-SMI
       run: . $PRELUDE; install_rocm_amdsmi_ubuntu $BUILD_ENV
 
-    - name: Install PyTorch-ROCm Nightly
-      run:  . $PRELUDE; install_pytorch_pip $BUILD_ENV nightly rocm/${{ matrix.rocm-version }}
+    - name: Install PyTorch-ROCm Test
+      run:  . $PRELUDE; install_pytorch_pip $BUILD_ENV test rocm/${{ matrix.rocm-version }}
 
     - name: Collect PyTorch Environment Info
       if: ${{ success() || failure() }}
