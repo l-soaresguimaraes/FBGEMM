@@ -198,6 +198,7 @@ __setup_fbgemm_gpu_test () {
     -rsx
     -s
     -W ignore::pytest.PytestCollectionWarning
+    --timeout_method thread
     --timeout=600
   )
 
