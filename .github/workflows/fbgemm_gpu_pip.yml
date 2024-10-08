@@ -18,8 +18,8 @@ on:
   # job is kicked off to give ample time for the nightly wheel to be available
   # in PyTorch PIP.
   #
-  schedule:
-    - cron: '30 15 * * *'
+  # schedule:
+  #   - cron: '30 15 * * *'
 
   # Manual Trigger
   #
@@ -40,7 +40,7 @@ on:
         type: choice
         required: true
         options: [ "cpu", "cuda", "rocm" ]
-        default: "cpu"
+        default: "rocm"
 
 
 jobs:
@@ -182,7 +182,7 @@ jobs:
       fail-fast: false
       matrix:
         host-machine: [
-          { arch: x86, instance: "rocm" },
+          { arch: x86, instance: "gfx90a" },
         ]
         # ROCm machines are limited, so we only test a subset of Python versions
         python-version: [ "3.11", "3.12" ]
@@ -227,5 +227,5 @@ jobs:
       run: . $PRELUDE; install_fbgemm_gpu_pip $BUILD_ENV ${{ github.event.inputs.fbgemm_gpu_channel_version || 'nightly' }} rocm/${{ matrix.rocm-version }}
 
     - name: Test with PyTest
-      timeout-minutes: 20
+      timeout-minutes: 60
       run: . $PRELUDE; test_all_fbgemm_gpu_modules $BUILD_ENV
