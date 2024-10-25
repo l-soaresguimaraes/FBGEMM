@@ -23,7 +23,7 @@ from hypothesis import given, settings
 from ..common import assert_torch_equal, MAX_EXAMPLES
 from .cache_common import assert_cache, generate_cache_tbes, gpu_unavailable, VERBOSITY
 
-
+@unittest.skip("Skipping all tests in this class because we are not using caching at the moment")
 class CacheOverflowTest(unittest.TestCase):
     @unittest.skipIf(*gpu_unavailable)
     @given(

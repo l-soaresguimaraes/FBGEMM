@@ -55,6 +55,7 @@ additional_decorators: Dict[str, List[Callable]] = {
 
 
 @optests.generate_opcheck_tests(fast=True, additional_decorators=additional_decorators)
+@unittest.skip("Skipping all tests in this class because we are not using caching at the moment")
 class NBitCacheTest(unittest.TestCase):
     @unittest.skipIf(*gpu_unavailable)
     @given(

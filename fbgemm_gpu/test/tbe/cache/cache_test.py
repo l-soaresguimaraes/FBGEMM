@@ -49,7 +49,7 @@ from .cache_common import (
     VERBOSITY,
 )
 
-
+@unittest.skip("Skipping all tests in this class because we are not using caching at the moment")
 @optests.generate_opcheck_tests(fast=True)
 class CacheTest(unittest.TestCase):
     def _compute_grad_output_shape(

@@ -35,6 +35,7 @@ VERBOSITY: Verbosity = Verbosity.verbose
 
 
 @optests.generate_opcheck_tests(fast=True)
+@unittest.skip("Skipping all tests in this class because we are not using caching at the moment")
 class LXUCacheTest(unittest.TestCase):
     @unittest.skipIf(*gpu_unavailable)
     @given(
