@@ -70,3 +70,5 @@ echo "Starting all tests in directory: fbgemm_gpu/test"
 for test_file in $(find fbgemm_gpu/test -name '*_test.py'); do
   run_python_test "$test_file"
 done
+
+python3 generate_excel_report.py
