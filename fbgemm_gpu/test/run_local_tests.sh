@@ -67,7 +67,7 @@ run_python_test () {
 }
 
 echo "Starting all tests in directory: fbgemm_gpu/test"
-for test_file in $(find fbgemm_gpu/test -name '*_test.py'); do
+for test_file in $(find . -name '*_test.py'); do
   run_python_test "$test_file"
 done
 
