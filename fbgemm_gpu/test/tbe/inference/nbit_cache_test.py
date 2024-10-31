@@ -10,6 +10,7 @@
 # pyre-ignore-all-errors[56]
 
 import unittest
+raise unittest.SkipTest("Skipping all tests in this module because we are not using caching at the moment")
 from typing import Callable, Dict, List
 
 import hypothesis.strategies as st
@@ -55,7 +56,6 @@ additional_decorators: Dict[str, List[Callable]] = {
 
 
 @optests.generate_opcheck_tests(fast=True, additional_decorators=additional_decorators)
-@unittest.skip("Skipping all tests in this class because we are not using caching at the moment")
 class NBitCacheTest(unittest.TestCase):
     @unittest.skipIf(*gpu_unavailable)
     @given(

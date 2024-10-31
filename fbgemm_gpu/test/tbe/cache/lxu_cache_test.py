@@ -11,6 +11,8 @@
 
 import random
 import unittest
+raise unittest.SkipTest("Skipping all tests in this module because we are not using caching at the moment")
+
 from itertools import accumulate
 from typing import Tuple
 
@@ -35,7 +37,6 @@ VERBOSITY: Verbosity = Verbosity.verbose
 
 
 @optests.generate_opcheck_tests(fast=True)
-@unittest.skip("Skipping all tests in this class because we are not using caching at the moment")
 class LXUCacheTest(unittest.TestCase):
     @unittest.skipIf(*gpu_unavailable)
     @given(
